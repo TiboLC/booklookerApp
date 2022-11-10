@@ -31,11 +31,6 @@ class Output extends Component {
     ));
     return value > 20 ? <p> . . . Zuviele Antworten</p> : fill;
   }
-
-  /*   formatCount() {
-    const { value } = this.props.counter;
-    return value === 0 ? <h4>Zero</h4> : value;
-  } */
 }
 
 export default Output;
