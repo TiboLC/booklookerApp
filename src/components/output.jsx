@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { listName } from "../telefonbuch633bf1";
 
 class Output extends Component {
   handleIncrement = (product) => {
@@ -12,12 +11,7 @@ class Output extends Component {
       <div>
         <span className="badge badge-primary m-2"></span>
         <ul onChange={() => this.props.onChange}>
-          {this.props.actualList.map((result) => (
-            <li>
-              {result.name} - {result.phone}{" "}
-            </li>
-          ))}
-          {/* {this.writeList()} */}
+          {this.writeList(this.props.actualList)}
         </ul>
       </div>
     );
@@ -25,21 +19,18 @@ class Output extends Component {
 
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
-    // classes += this.props.counter === 0 ? "warning" : "primary";
     return classes;
   }
 
-  /*   writeList() {
-    const { value } = this.props.actualList.length;
-    const { fill } = this.props.actualList.map((result) => (
+  writeList(l) {
+    const value = l.length;
+    const fill = l.map((result) => (
       <li>
         {result.name} - {result.phone}{" "}
       </li>
     ));
-    console.log("value", value);
-    console.log(fill);
-    return value === 0 ? "" : fill;
-  } */
+    return value > 20 ? <p> . . . Zuviele Antworten</p> : fill;
+  }
 
   /*   formatCount() {
     const { value } = this.props.counter;
